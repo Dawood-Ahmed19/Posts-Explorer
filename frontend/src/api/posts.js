@@ -1,4 +1,7 @@
 const postsUrl = import.meta.env.VITE_API_URL;
+console.log("Environment:", import.meta.env.MODE);
+console.log("API URL:", import.meta.env.VITE_API_URL);
+console.log("Final postsUrl:", postsUrl);
 const SIMULATE = null;
 
 const delay = (ms, signal) =>
