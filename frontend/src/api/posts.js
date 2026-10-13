@@ -1,4 +1,4 @@
-const postsUrl = import.meta.env.API_URL ?? "http://localhost:3000/api/posts";
+const postsUrl = import.meta.env.API_URL;
 const SIMULATE = null;
 
 const delay = (ms, signal) =>
