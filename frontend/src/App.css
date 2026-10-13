@@ -1,0 +1,108 @@
+body {
+  padding-block: 30px;
+  padding-inline: 100px;
+}
+
+.error-state {
+  padding: 24px;
+  text-align: center;
+  border: 1px solid #f5c2c7;
+  background: #f8d7da;
+  color: #842029;
+  border-radius: 8px;
+}
+
+.error-state button {
+  margin-top: 12px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.empty-state {
+  padding: 32px;
+  text-align: center;
+  border: 1px dashed #ccc;
+  border-radius: 8px;
+  color: #555;
+}
+
+.post-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 100%;
+}
+
+.post-container {
+  background-color: #ecececec;
+  padding-block: 10px;
+  padding-inline: 20px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.post-id {
+  font-size: 10px;
+}
+
+.user-id {
+  font-size: 10px;
+}
+
+.post-title {
+  font-size: 20px;
+}
+
+.post-body {
+  font-size: 12px;
+}
+
+section.home {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.input > label {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.input > input {
+  padding-block: 10px;
+  padding-inline: 20px;
+  color: #555;
+}
+
+.posts-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.pagination > button {
+  padding-block: 10px;
+  padding-inline: 40px;
+  border: none;
+}
+
+.pagination > button:not(:disabled):hover {
+  background-color: #333333;
+  color: white;
+  cursor: pointer;
+}
+
+.like-button:hover {
+  cursor: pointer;
+}
+
+.liked {
+  color: red;
+}
