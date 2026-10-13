@@ -1,4 +1,4 @@
-const postsUrl = import.meta.env.API_URL;
+const postsUrl = import.meta.env.VITE_API_URL;
 const SIMULATE = null;
 
 const delay = (ms, signal) =>

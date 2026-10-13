@@ -57,6 +57,8 @@ const handleLike = (delta) => async (req, res) => {
 app.post("/api/posts/:id/like", handleLike(1));
 app.delete("/api/posts/:id/like", handleLike(-1));
 
-app.listen(PORT, () => {
-  console.log(`Server running on Port: ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on Port: ${PORT}`);
+// });
+
+export default app;
