@@ -1,3 +1,5 @@
+import "../../styles/Post.css";
+
 const Post = ({ id, userId, title, body, likes, liked, onLike }) => {
   return (
     <div className="post-container">

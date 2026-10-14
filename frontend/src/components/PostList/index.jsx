@@ -1,4 +1,5 @@
 import Post from "../Post";
+import "../../styles/PostList.css";
 
 const PostList = ({ posts, likedIds, counts, onToggleLike }) => {
   return (

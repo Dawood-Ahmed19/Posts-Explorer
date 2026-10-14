@@ -1,3 +1,5 @@
+import "../../styles/EmptyState.css";
+
 const EmptyState = ({ message, title = "Nothing to show" }) => {
   return (
     <div className="empty-state" role="status">

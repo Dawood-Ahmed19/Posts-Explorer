@@ -1,0 +1,113 @@
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  max-width: 480px;
+  margin-bottom: 28px;
+
+  animation: searchEntrance 0.65s ease-out both;
+}
+
+.input label {
+  font-size: 15px;
+  font-weight: 650;
+  color: #1e293b;
+  letter-spacing: -0.3px;
+  transition: color 0.25s ease;
+}
+
+.input:focus-within label {
+  color: #6366f1;
+}
+
+.search-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+
+  font-family: inherit;
+  font-size: 14px;
+  color: #0f172a;
+
+  background: linear-gradient(135deg, #ffffff, #fafaff);
+  border: 1px solid #dbe2ea;
+  border-radius: 12px;
+  outline: none;
+
+  box-shadow:
+    0 2px 5px rgba(15, 23, 42, 0.03),
+    0 0 0 rgba(99, 102, 241, 0);
+
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease,
+    background 0.3s ease;
+}
+
+.search-input::placeholder {
+  color: #94a3b8;
+  transition: color 0.25s ease;
+}
+
+.search-input:hover {
+  border-color: #a5b4fc;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(99, 102, 241, 0.08);
+}
+
+.search-input:focus {
+  border-color: #818cf8;
+  background: #ffffff;
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0 0 4px rgba(99, 102, 241, 0.12),
+    0 8px 22px rgba(99, 102, 241, 0.12);
+}
+
+.search-input:focus::placeholder {
+  color: #c0c7d5;
+}
+
+/* Smooth clear button */
+.search-input::-webkit-search-cancel-button {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.search-input::-webkit-search-cancel-button:hover {
+  transform: scale(1.2);
+}
+
+@keyframes searchEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.search-input:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .input,
+  .search-input,
+  .input label,
+  .search-input::placeholder {
+    animation: none;
+    transition: none;
+  }
+
+  .search-input:hover,
+  .search-input:focus {
+    transform: none;
+  }
+}

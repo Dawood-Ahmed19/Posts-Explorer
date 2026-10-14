@@ -1,3 +1,5 @@
+import "../../styles/SearchInput.css";
+
 const SearchInput = ({ value, onChange, placeholder }) => {
   return (
     <div className="input">

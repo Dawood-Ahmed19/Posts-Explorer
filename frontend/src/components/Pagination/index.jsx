@@ -1,3 +1,5 @@
+import "../../styles/Pagination.css";
+
 const Pagination = ({ page, totalPages, onPrevious, onNext }) => {
   return (
     <nav className="pagination" aria-label="Pagination">

@@ -6,9 +6,11 @@ import {
   PostList,
   SearchInput,
   Pagination,
+  Dashboard,
 } from "../../components";
 import { usePosts } from "../../hooks/usePosts";
 import { useLikes } from "../../hooks/useLikes";
+import "../../styles/Home.css";
 
 const Home = () => {
   const { posts, retry, error, status } = usePosts();
@@ -32,44 +34,73 @@ const Home = () => {
     setPage(1);
   };
 
-  if (status === "loading") return <Loader />;
-  if (status === "error") return <ErrorState message={error} onRetry={retry} />;
-  if (status === "empty") return <EmptyState message="No Post Available" />;
   return (
-    <>
-      <section className="home">
-        <SearchInput
-          value={query}
-          onChange={handleSearch}
-          placeholder="Type here..."
+    <main className="home">
+      <Dashboard posts={posts} filteredPosts={filteredPosts} />
+
+      {status === "loading" ? (
+        <Loader />
+      ) : status === "error" ? (
+        <ErrorState message={error} onRetry={retry} />
+      ) : status === "empty" || posts.length === 0 ? (
+        <EmptyState
+          title="No posts yet"
+          message="Your dashboard is ready! There are no posts available right now. Check back later."
         />
-        <div className="posts">
+      ) : (
+        <section className="home-content">
+          <div className="home-search">
+            <div className="section-heading">
+              <div>
+                <span className="section-eyebrow">YOUR COLLECTION</span>
+                <h2>Explore posts</h2>
+              </div>
+
+              <span className="results-badge">
+                {filteredPosts.length} results
+              </span>
+            </div>
+
+            <SearchInput
+              value={query}
+              onChange={handleSearch}
+              placeholder="Search posts by title..."
+            />
+          </div>
+
+          {likeError && (
+            <p role="alert" className="like-error">
+              {likeError}
+            </p>
+          )}
+
           {filteredPosts.length === 0 ? (
-            <EmptyState title="No Results" message={`No Post match ${query}`} />
+            <EmptyState
+              title="No results found"
+              message={`No posts match "${query}". Try another search.`}
+            />
           ) : (
-            <div className="posts-pagination">
-              {likeError && (
-                <p role="alert" className="like-error">
-                  {likeError}
-                </p>
-              )}
+            <>
               <PostList
                 posts={PaginatedPosts}
                 likedIds={likedIds}
                 counts={counts}
                 onToggleLike={toggleLike}
               />
-              <Pagination
-                page={page}
-                totalPages={totalPages}
-                onPrevious={() => setPage((p) => p - 1)}
-                onNext={() => setPage((p) => p + 1)}
-              />
-            </div>
+
+              <div className="home-pagination">
+                <Pagination
+                  page={page}
+                  totalPages={totalPages}
+                  onPrevious={() => setPage((p) => p - 1)}
+                  onNext={() => setPage((p) => p + 1)}
+                />
+              </div>
+            </>
           )}
-        </div>
-      </section>
-    </>
+        </section>
+      )}
+    </main>
   );
 };
 

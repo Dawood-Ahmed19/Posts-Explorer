@@ -1,3 +1,5 @@
+import "../../styles/ErrorState.css";
+
 const ErrorState = ({ message, onRetry, disabled = false }) => {
   return (
     <div className="error-state" role="alert">

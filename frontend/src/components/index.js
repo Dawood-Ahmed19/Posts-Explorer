@@ -4,3 +4,4 @@ export { default as EmptyState } from "./EmptyState";
 export { default as PostList } from "./PostList";
 export { default as SearchInput } from "./SearchInput";
 export { default as Pagination } from "./Pagination";
+export { default as Dashboard } from "./Dashboard";

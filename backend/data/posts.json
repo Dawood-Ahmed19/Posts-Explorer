@@ -4,7 +4,6 @@
     "userId": 1,
     "title": "This is Post 1",
     "body": "This is body of post 1",
-    "LikeCount": 0,
     "likes": 0
   },
   {
@@ -12,7 +11,6 @@
     "userId": 1,
     "title": "This is Post 2",
     "body": "This is body of post 2",
-    "LikeCount": 0,
     "likes": 0
   },
   {
@@ -20,7 +18,6 @@
     "userId": 1,
     "title": "This is Post 3",
     "body": "This is body of post 3",
-    "LikeCount": 0,
     "likes": 0
   },
   {
@@ -28,7 +25,6 @@
     "userId": 1,
     "title": "This is Post 4",
     "body": "This is body of post 4",
-    "LikeCount": 0,
     "likes": 0
   },
   {
@@ -36,7 +32,6 @@
     "userId": 1,
     "title": "This is Post 5",
     "body": "This is body of post 5",
-    "LikeCount": 0,
     "likes": 0
   },
   {
@@ -44,22 +39,19 @@
     "userId": 1,
     "title": "This is Post 6",
     "body": "This is body of post 6",
-    "LikeCount": 0,
-    "likes": 1
+    "likes": 2
   },
   {
     "id": 7,
     "userId": 1,
     "title": "This is Post 7",
-    "body": "This is body of post 7",
-    "LikeCount": 0
+    "body": "This is body of post 7"
   },
   {
     "id": 8,
     "userId": 1,
     "title": "This is Post 8",
     "body": "This is body of post 8",
-    "LikeCount": 0,
     "likes": 2
   },
   {
@@ -67,84 +59,72 @@
     "userId": 1,
     "title": "This is Post 9",
     "body": "This is body of post 9",
-    "LikeCount": 0,
     "likes": 0
   },
   {
     "id": 10,
     "userId": 1,
     "title": "This is Post 10",
-    "body": "This is body of post 10",
-    "LikeCount": 0
+    "body": "This is body of post 10"
   },
   {
     "id": 11,
     "userId": 2,
     "title": "This is Post 11",
-    "body": "This is body of post 11",
-    "LikeCount": 0
+    "body": "This is body of post 11"
   },
   {
     "id": 12,
     "userId": 2,
     "title": "This is Post 12",
-    "body": "This is body of post 12",
-    "LikeCount": 0
+    "body": "This is body of post 12"
   },
   {
     "id": 13,
     "userId": 2,
     "title": "This is Post 13",
-    "body": "This is body of post 13",
-    "LikeCount": 0
+    "body": "This is body of post 13"
   },
   {
     "id": 14,
     "userId": 2,
     "title": "This is Post 14",
-    "body": "This is body of post 14",
-    "LikeCount": 0
+    "body": "This is body of post 14"
   },
   {
     "id": 15,
     "userId": 2,
     "title": "This is Post 15",
-    "body": "This is body of post 15",
-    "LikeCount": 0
+    "body": "This is body of post 15"
   },
   {
     "id": 16,
     "userId": 2,
     "title": "This is Post 16",
-    "body": "This is body of post 16",
-    "LikeCount": 0
+    "body": "This is body of post 16"
   },
   {
     "id": 17,
     "userId": 2,
     "title": "This is Post 17",
-    "body": "This is body of post 17",
-    "LikeCount": 0
+    "body": "This is body of post 17"
   },
   {
     "id": 18,
     "userId": 2,
     "title": "This is Post 18",
-    "body": "This is body of post 18",
-    "LikeCount": 0
+    "body": "This is body of post 18"
   },
   {
     "id": 19,
     "userId": 2,
     "title": "This is Post 19",
-    "body": "This is body of post 19",
-    "LikeCount": 0
+    "body": "This is body of post 19"
   },
   {
     "id": 20,
     "userId": 2,
     "title": "This is Post 20",
-    "body": "This is body of post 20",
-    "LikeCount": 0
+    "body": "This is body of post 20"
   }
 ]
