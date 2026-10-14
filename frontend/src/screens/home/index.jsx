@@ -65,6 +65,8 @@ const Home = () => {
               value={query}
               onChange={handleSearch}
               placeholder="Search posts by title..."
+              onReload={retry}
+              reloading={status === "loading"}
             />
           </div>
 
