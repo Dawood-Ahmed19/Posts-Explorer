@@ -1,6 +1,7 @@
 import { readFile, writeFile } from "node:fs/promises";
 import { POSTS_FILE } from "../config/index.js";
 import Post from "../Model/post.js";
+import { connectDB } from "../config/db.js";
 
 const readPosts = async () => JSON.parse(await readFile(POSTS_FILE, "utf-8"));
 const savePosts = (posts) =>
@@ -8,11 +9,14 @@ const savePosts = (posts) =>
 
 let writeQueue = Promise.resolve();
 
-export const getAllPosts = () =>
-  Post.find().select("-_id -__v").sort({ id: 1 }).lean();
+export const getAllPosts = async () => {
+  await connectDB();
+  return Post.find().select("-_id -__v").sort({ id: 1 }).lean();
+};
 
-export const changeLikes = (id, delta) =>
-  Post.findOneAndUpdate(
+export const changeLikes = async (id, delta) => {
+  await connectDB();
+  return Post.findOneAndUpdate(
     { id },
     [
       {
@@ -25,3 +29,4 @@ export const changeLikes = (id, delta) =>
   )
     .select("-_id -__v")
     .lean();
+};
