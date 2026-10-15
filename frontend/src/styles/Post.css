@@ -162,3 +162,73 @@
 .like-button:active {
   transform: scale(0.94);
 }
+
+.action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  margin-bottom: 12px;
+}
+
+.action-buttons button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+
+  padding: 8px 13px;
+  border: 1px solid #e0e7ff;
+  border-radius: 9px;
+
+  background: #eef2ff;
+  color: #4338ca;
+
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.22s ease,
+    color 0.22s ease,
+    border-color 0.22s ease,
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+.action-buttons button svg {
+  font-size: 12px;
+}
+
+.action-buttons button:first-child:hover {
+  background: #4338ca;
+  color: #ffffff;
+  border-color: #4338ca;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(67, 56, 202, 0.16);
+}
+
+.action-buttons button:last-child {
+  color: #e11d48;
+  background: #fff1f2;
+  border-color: #fecdd3;
+}
+
+.action-buttons button:last-child:hover {
+  color: #ffffff;
+  background: #e11d48;
+  border-color: #e11d48;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(225, 29, 72, 0.16);
+}
+
+.action-buttons button:focus-visible {
+  outline: 3px solid rgba(99, 102, 241, 0.35);
+  outline-offset: 3px;
+}
+
+.action-buttons button:active {
+  transform: scale(0.96);
+}

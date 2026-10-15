@@ -1,7 +1,14 @@
 import Post from "../Post";
 import "../../styles/PostList.css";
 
-const PostList = ({ posts, likedIds, counts, onToggleLike }) => {
+const PostList = ({
+  posts,
+  likedIds,
+  counts,
+  onToggleLike,
+  onEdit,
+  onDelete,
+}) => {
   return (
     <>
       <section className="post-list">
@@ -14,6 +21,8 @@ const PostList = ({ posts, likedIds, counts, onToggleLike }) => {
               likes={likes}
               liked={likedIds.includes(post.id)}
               onLike={() => onToggleLike(post.id, likes)}
+              onEdit={() => onEdit(post)}
+              onDelete={() => onDelete(post)}
             />
           );
         })}

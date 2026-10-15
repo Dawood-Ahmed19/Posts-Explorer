@@ -7,13 +7,23 @@ import {
   SearchInput,
   Pagination,
   Dashboard,
+  PostForm,
 } from "../../components";
 import { usePosts } from "../../hooks/usePosts";
 import { useLikes } from "../../hooks/useLikes";
 import "../../styles/Home.css";
+import { usePostActions } from "../../hooks/usePostActions";
 
 const Home = () => {
-  const { posts, retry, error, status } = usePosts();
+  const {
+    posts,
+    retry,
+    error,
+    status,
+    addLocalPost,
+    removeLocalPost,
+    replaceLocalPost,
+  } = usePosts();
   const [query, setQuery] = useState("");
   const normalizedQuery = query.trim().toLowerCase();
   const filteredPosts = posts.filter((post) => {
@@ -24,14 +34,52 @@ const Home = () => {
   const PAGE_SIZE = 10;
 
   const totalPages = Math.max(1, Math.ceil(filteredPosts.length / PAGE_SIZE));
-  const PaginatedPosts = filteredPosts.slice(
-    (page - 1) * PAGE_SIZE,
-    page * PAGE_SIZE,
-  );
+  const currentPage = Math.min(page, totalPages);
 
+  const PaginatedPosts = filteredPosts.slice(
+    (currentPage - 1) * PAGE_SIZE,
+    currentPage * PAGE_SIZE,
+  );
   const handleSearch = (value) => {
     setQuery(value);
     setPage(1);
+  };
+
+  const [formOpen, setFormOpen] = useState(false);
+  const [editingPost, setEditingPost] = useState(null);
+
+  const closeForm = () => {
+    setFormOpen(false);
+    setEditingPost(null);
+  };
+
+  const actions = usePostActions({
+    onCreated: addLocalPost,
+    onUpdated: replaceLocalPost,
+    onDeleted: (post) => removeLocalPost(post.id),
+  });
+
+  const openAdd = () => {
+    actions.clearActionError();
+    setEditingPost(null);
+    setFormOpen(true);
+  };
+
+  const openEdit = (post) => {
+    actions.clearActionError();
+    setEditingPost(post);
+    setFormOpen(true);
+  };
+
+  const handleSubmit = async (values) => {
+    const ok = editingPost
+      ? await actions.update(editingPost.id, values)
+      : await actions.create(values);
+    if (ok) closeForm();
+  };
+
+  const handleDelete = (post) => {
+    if (window.confirm(`Delete "${post.title}"?`)) actions.remove(post.id);
   };
 
   const renderContent = () => {
@@ -55,6 +103,7 @@ const Home = () => {
         />
       );
     }
+
     return (
       <>
         {likeError && (
@@ -67,13 +116,15 @@ const Home = () => {
           likedIds={likedIds}
           counts={counts}
           onToggleLike={toggleLike}
+          onEdit={openEdit}
+          onDelete={handleDelete}
         />
         <div className="home-pagination">
           <Pagination
-            page={page}
+            page={currentPage}
             totalPages={totalPages}
-            onPrevious={() => setPage((p) => p - 1)}
-            onNext={() => setPage((p) => p + 1)}
+            onPrevious={() => setPage(currentPage - 1)}
+            onNext={() => setPage(currentPage + 1)}
           />
         </div>
       </>
@@ -107,6 +158,21 @@ const Home = () => {
             reloading={status === "loading"}
           />
         </div>
+
+        <button className="add-post-button" type="button" onClick={openAdd}>
+          + Add post
+        </button>
+
+        {formOpen && (
+          <PostForm
+            key={editingPost?.id ?? "new"}
+            initial={editingPost}
+            saving={actions.saving}
+            error={actions.actionError}
+            onSubmit={handleSubmit}
+            onCancel={closeForm}
+          />
+        )}
 
         {renderContent()}
       </section>

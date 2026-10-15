@@ -1,0 +1,141 @@
+.post-form {
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  margin: 12px 0 18px;
+  background: #ffffff;
+  border: 1px solid #edf0f7;
+  border-radius: 14px;
+  box-shadow: 0 4px 18px rgba(40, 45, 90, 0.04);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+}
+
+.post-form h3 {
+  margin: 0 0 4px;
+  color: #202442;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.post-form input,
+.post-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 11px 13px;
+  border: 1px solid #e5e8f2;
+  border-radius: 9px;
+  outline: none;
+  background: #fbfcff;
+  color: #252944;
+  font-family: inherit;
+  font-size: 13px;
+  line-height: 1.5;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.post-form input {
+  height: 40px;
+}
+
+.post-form textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.post-form input::placeholder,
+.post-form textarea::placeholder {
+  color: #9ba3b8;
+}
+
+.post-form input:focus,
+.post-form textarea:focus {
+  border-color: #6257e8;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(98, 87, 232, 0.1);
+}
+
+.post-form .like-error {
+  margin: 0;
+  padding: 10px 12px;
+  border: 1px solid #fecdd3;
+  border-radius: 8px;
+  background: #fff1f2;
+  color: #be123c;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.post-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 9px;
+  margin-top: 2px;
+}
+
+.post-form-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 68px;
+  min-height: 34px;
+  padding: 8px 15px;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.post-form-actions button[type="submit"] {
+  background: linear-gradient(135deg, #5145cd, #7165f0);
+  color: #ffffff;
+  box-shadow: 0 3px 8px rgba(91, 77, 220, 0.16);
+}
+
+.post-form-actions button[type="submit"]:hover:not(:disabled) {
+  background: linear-gradient(135deg, #4338b8, #5c50df);
+  box-shadow: 0 5px 12px rgba(91, 77, 220, 0.22);
+  transform: translateY(-1px);
+}
+
+.post-form-actions button[type="submit"]:disabled {
+  background: #eeedfc;
+  color: #a09bd5;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.post-form-actions button[type="button"] {
+  border-color: #e6e9f2;
+  background: #ffffff;
+  color: #667085;
+}
+
+.post-form-actions button[type="button"]:hover:not(:disabled) {
+  border-color: #d5d9e8;
+  background: #f5f6fb;
+  color: #343852;
+}
+
+.post-form-actions button:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}

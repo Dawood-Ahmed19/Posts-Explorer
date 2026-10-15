@@ -30,3 +30,25 @@ export const changeLikes = async (id, delta) => {
     .select("-_id -__v")
     .lean();
 };
+
+export const createPost = async ({ userId, title, body }) => {
+  await connectDB();
+  const last = await Post.findOne().sort({ id: -1 }).select("id").lean();
+  const id = (last?.id ?? 0) + 1;
+
+  const post = await Post.create({ id, userId, title, body });
+  const { _id, __v, ...publicPost } = post.toObject();
+  return publicPost;
+};
+
+export const updatePost = (id, updates) =>
+  Post.findOneAndUpdate(
+    { id },
+    { $set: updates },
+    { new: true, runValidators: true },
+  )
+    .select("-_id -__v")
+    .lean();
+
+export const deletePost = (id) =>
+  Post.findOneAndDelete({ id }).select("-_id -__v").lean();

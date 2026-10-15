@@ -41,7 +41,28 @@ const usePosts = () => {
     if (inflightRef.current) return;
     setReloadKey((key) => key + 1);
   }, []);
-  return { posts, retry, status, error };
+
+  const addLocalPost = useCallback((post) => {
+    setPosts((current) => [...current, post]);
+    setStatus("success");
+  }, []);
+
+  const replaceLocalPost = useCallback((post) => {
+    setPosts((current) => current.map((p) => (p.id === post.id ? post : p)));
+  }, []);
+
+  const removeLocalPost = useCallback((id) => {
+    setPosts((current) => current.filter((p) => p.id !== id));
+  }, []);
+  return {
+    posts,
+    retry,
+    status,
+    error,
+    addLocalPost,
+    replaceLocalPost,
+    removeLocalPost,
+  };
 };
 
 export { usePosts };

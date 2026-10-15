@@ -29,8 +29,34 @@ const sendLike = async (id, method) => {
   }
   return response.json();
 };
+const sendJson = async (url, method, payload) => {
+  const response = await fetch(url, {
+    method,
+    headers: payload ? { "Content-Type": "application/json" } : undefined,
+    body: payload ? JSON.stringify(payload) : undefined,
+  });
+
+  if (!response.ok) {
+    const data = await response.json().catch(() => ({}));
+    throw new Error(data.message || `Server Error: ${response.status}`);
+  }
+  return response.json();
+};
+
+const createPost = (values) => sendJson(postsUrl, "POST", values);
+const updatePost = (id, values) =>
+  sendJson(`${postsUrl}/${id}`, "PATCH", values);
+const deletePost = (id) => sendJson(`${postsUrl}/${id}`, "DELETE");
 
 const likePost = (id) => sendLike(id, "POST");
 const unlikePost = (id) => sendLike(id, "DELETE");
 
-export { fetchPosts, postsUrl, likePost, unlikePost };
+export {
+  fetchPosts,
+  postsUrl,
+  likePost,
+  unlikePost,
+  createPost,
+  updatePost,
+  deletePost,
+};
